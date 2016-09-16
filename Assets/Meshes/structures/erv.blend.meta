@@ -1,0 +1,132 @@
+fileFormatVersion: 2
+guid: 83a7da5f95746d54ca048dd7ed4cc11d
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: erv_base
+    100004: erv_capsule
+    100006: erv_cylinder
+    100008: erv_hatch
+    100010: erv_tank_rims
+    100012: erv_tanks
+    100014: floors
+    100016: frame
+    100018: fuel_injectors
+    100020: greebles
+    100022: jets
+    100024: railing
+    100026: tank_rims
+    100028: tanks
+    400000: //RootNode
+    400002: erv_base
+    400004: erv_capsule
+    400006: erv_cylinder
+    400008: erv_hatch
+    400010: erv_tank_rims
+    400012: erv_tanks
+    400014: floors
+    400016: frame
+    400018: fuel_injectors
+    400020: greebles
+    400022: jets
+    400024: railing
+    400026: tank_rims
+    400028: tanks
+    2300000: erv_base
+    2300002: erv_capsule
+    2300004: erv_cylinder
+    2300006: erv_hatch
+    2300008: erv_tank_rims
+    2300010: erv_tanks
+    2300012: floors
+    2300014: frame
+    2300016: fuel_injectors
+    2300018: greebles
+    2300020: jets
+    2300022: railing
+    2300024: tank_rims
+    2300026: tanks
+    3300000: erv_base
+    3300002: erv_capsule
+    3300004: erv_cylinder
+    3300006: erv_hatch
+    3300008: erv_tank_rims
+    3300010: erv_tanks
+    3300012: floors
+    3300014: frame
+    3300016: fuel_injectors
+    3300018: greebles
+    3300020: jets
+    3300022: railing
+    3300024: tank_rims
+    3300026: tanks
+    4300000: erv_capsule
+    4300002: erv_hatch
+    4300004: erv_cylinder
+    4300006: erv_tanks
+    4300008: erv_base
+    4300010: erv_tank_rims
+    4300012: floors
+    4300014: tanks
+    4300016: tank_rims
+    4300018: greebles
+    4300020: fuel_injectors
+    4300022: jets
+    4300024: railing
+    4300026: frame
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

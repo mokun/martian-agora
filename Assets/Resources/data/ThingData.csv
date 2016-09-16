@@ -1,0 +1,38 @@
+id,key,name,long name,blueprint,tool,work verb,durability
+0,awg,AWG,Atmospheric Water Generator,1,,,
+1,compressor,,,,,,
+2,condenser,,,,,,
+3,evaporator,,,,,,
+4,glass,,,,,,
+5,propeller,,,,,,
+6,pump,,,,,,
+7,tank-small,Small Tank,,1,,,
+8,rubber-tube,,,,,,
+9,valve,,,,,,
+10,electric-drill,Electric Drill,,,1,Drill,50
+11,grease-gun,Grease Gun,,,1,Lubricate,50
+12,hammer-drill,Hammer Drill,,,1,Hammer Drill,50
+13,shovel,,,,1,Dig,100
+14,soldering-gun,Soldering Gun,,,1,Solder,50
+15,wrench,,,,1,Turn Bolts,1000
+16,charging-station,Charging Station,,1,,,
+17,wind-turbine,Wind Turbine,,1,,,
+18,solar-panel,Solar Panel,,1,,,
+19,wire-cutters,Wire Cutters,,,1,Cut Wires,200
+20,steel,,,,,,
+21,solar-cell,Solar Cell,,,,,
+22,power-cable,Power Cable,,,,,
+23,mppt,MPPT Controller,Maximum power point tracking controller,,,,
+24,electric-generator,Electric Generator,,,,,
+25,turbine-blade,Turbine Blade,,,,,
+26,martian-cement,Martian Cement,,,,,
+27,lithium-battery,Lithium Battery,,,,,
+28,plastic-dome,Plastic Dome,,1,,,
+29,vr-visor,VR Visor,Virtual Reality Visor,,,,
+30,iron,,,,,,
+31,plexiglass,,,
+32,plastic-sheet,Plastic Sheet,,
+33,flywheel,,,1
+34,oxygen-crate,Oxygen Crate,,1
+35,lithium-crate,Lithium Crate,,1
+36,tank-large,Large Tank,,1

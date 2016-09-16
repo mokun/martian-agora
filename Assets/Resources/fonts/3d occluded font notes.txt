@@ -1,0 +1,44 @@
+http://wiki.unity3d.com/index.php?title=3DText
+
+3DText
+Author: Eric Haines (Eric5h5)
+Description
+
+When using 3D text, the default shader is the same one used for GUIText, which makes the 3D text always appear on top of objects. This is frequently not what you want when using 3D text, so this 3DText shader makes it behave properly.
+3DText.png
+Usage
+
+Place this shader somewhere in your Assets folder hierarchy. Then, replace the font material on the mesh renderer of the 3D text with a different material that uses this shader (and the appropriate font texture of course—this won't work for the built-in font because the font texture for that is not available). Also make sure the 3DText object is using the same font that was used to generate the font texture.
+ShaderLab - 3DText.shader
+
+Invalid language.
+You need to specify a language like this: <source lang="html4strict">...</source>
+Supported languages for syntax highlighting:
+ [Expand] 
+Shader "GUI/3D Text Shader" { 
+Properties { 
+   _MainTex ("Font Texture", 2D) = "white" {} 
+   _Color ("Text Color", Color) = (1,1,1,1) 
+} 
+
+SubShader { 
+   Tags { "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" } 
+   Lighting Off Cull Off ZWrite Off Fog { Mode Off } 
+   Blend SrcAlpha OneMinusSrcAlpha 
+   Pass { 
+      Color [_Color] 
+      SetTexture [_MainTex] { 
+         combine primary, texture * primary 
+      } 
+   } 
+} 
+}
+Creating the shader above is step 1. I've added the other steps with some visuals. -DaevFinn June 2, 2010
+First make the new Material and assign the Shader you made in Step 1.
+Step2 makeNEW MATERIAL.jpg Step3 assign 3D TEXT SHADE.jpg
+Then Assign the Font Texture you wish to use on this FONT_3D_MTL.
+Step4A assign FONT TEXTURE.jpg Step4B assign FONT TEXTURE.jpg
+Then Choose your 3D_TEXT that you wish to be occluded. Assign the FONT_3D_MTL to the Mesh Renderer portion.
+Step5A ASSIGN FONT MTL.jpg Step5B ASSIGN FONT MTL.jpg
+Finally, assign the FONT you want to use, I'm using MS_PGOTHIC here, to the FONT in the Text Mesh portion of your 3D_text. This should do it.
+Step6 ASSIGN CHANGE FONT.jpg

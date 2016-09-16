@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: 85e72ebd0cbbb3c4291a02a7e29794a2
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Circle
+    100004: dome_frame
+    100006: dome_glass
+    100008: entrance
+    100010: inner_door
+    100012: outer_door
+    100014: Cube
+    100016: Cube_001
+    100018: Cylinder
+    100020: Cylinder_001
+    100022: console1
+    100024: console2
+    100026: console3
+    100028: console4
+    100030: door1
+    100032: door1_target
+    100034: door2
+    100036: door2_target
+    400000: //RootNode
+    400002: Circle
+    400004: dome_frame
+    400006: dome_glass
+    400008: entrance
+    400010: inner_door
+    400012: outer_door
+    400014: Cube
+    400016: Cube_001
+    400018: Cylinder
+    400020: Cylinder_001
+    400022: console1
+    400024: console2
+    400026: console3
+    400028: console4
+    400030: door1
+    400032: door1_target
+    400034: door2
+    400036: door2_target
+    2300000: Circle
+    2300002: dome_frame
+    2300004: dome_glass
+    2300006: entrance
+    2300008: inner_door
+    2300010: outer_door
+    2300012: Cube
+    2300014: Cube_001
+    2300016: Cylinder
+    2300018: Cylinder_001
+    2300020: console1
+    2300022: console2
+    2300024: console3
+    2300026: console4
+    2300028: door1
+    2300030: door1_target
+    2300032: door2
+    2300034: door2_target
+    3300000: Circle
+    3300002: dome_frame
+    3300004: dome_glass
+    3300006: entrance
+    3300008: inner_door
+    3300010: outer_door
+    3300012: Cube
+    3300014: Cube_001
+    3300016: Cylinder
+    3300018: Cylinder_001
+    3300020: console1
+    3300022: console2
+    3300024: console3
+    3300026: console4
+    3300028: door1
+    3300030: door1_target
+    3300032: door2
+    3300034: door2_target
+    4300000: inner_door
+    4300002: entrance
+    4300004: outer_door
+    4300006: Circle
+    4300008: dome_frame
+    4300010: dome_glass
+    4300012: Cube_001
+    4300014: Cube
+    4300016: Cylinder_001
+    4300018: Cylinder
+    4300032: door2
+    4300034: door1
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
