@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 73e35ef3232a8b447a4eee148bab7b58
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: cage
     100002: gauge
@@ -227,59 +227,102 @@ ModelImporter:
     3300106: oxygen_tank7
     3300108: oxygen_tank8
     3300110: oxygen_tank9
+    4300000: oxygen-crate
     4300002: tank_008
     4300004: valve_008
     4300006: screw_008
     4300008: gauge_008
+    4300010: oxygen_tank9
     4300012: gauge_007
     4300014: screw_007
     4300016: valve_007
     4300018: tank_007
+    4300020: oxygen_tank8
     4300022: tank_006
     4300024: valve_006
     4300026: screw_006
     4300028: gauge_006
+    4300030: oxygen_tank7
     4300032: gauge_005
     4300034: screw_005
     4300036: valve_005
     4300038: tank_005
+    4300040: oxygen_tank6
     4300042: gauge_004
     4300044: screw_004
     4300046: tank_004
     4300048: valve_004
+    4300050: oxygen_tank5
     4300052: valve_003
     4300054: tank_003
     4300056: screw_003
     4300058: gauge_003
+    4300060: oxygen_tank4
     4300062: tank_002
     4300064: valve_002
     4300066: screw_002
     4300068: gauge_002
+    4300070: oxygen_tank3
     4300072: gauge
     4300074: screw
     4300076: valve
     4300078: tank
     4300080: cage
+    4300082: oxygen_tank1
     4300084: gauge_001
     4300086: screw_001
     4300088: tank_001
     4300090: valve_001
+    4300092: oxygen_tank2
     7400000: Default Take
     9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: green
+    second: {fileID: 2100000, guid: e30672d1f6b3bd34d92c80c5ecc54b4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal-dark
+    second: {fileID: 2100000, guid: c153af2c69d0dc249b846d12e8723f83, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal-smooth-dark
+    second: {fileID: 2100000, guid: b26124ae5c779924aba14a49e1374d8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal-smooth-silver
+    second: {fileID: 2100000, guid: 3158b3a1d8f1de9409929dfc6b78173e, type: 2}
   materials:
     importMaterials: 1
+    autoMapExternalMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
+    resampleCurves: 1
     optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
     animationCompression: 1
-    animationRotationError: .5
-    animationPositionError: .5
-    animationScaleError: .5
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -287,35 +330,48 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
+    keepQuads: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
-    splitTangentsAcrossUV: 1
     normalImportMode: 0
-    tangentImportMode: 1
+    tangentImportMode: 4
+    normalCalculationMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
+    serializedVersion: 2
     human: []
     skeleton: []
-    armTwist: .5
-    foreArmTwist: .5
-    upperLegTwist: .5
-    legTwist: .5
-    armStretch: .0500000007
-    legStretch: .0500000007
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
+  humanoidOversampling: 1
   additionalBone: 0
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
