@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 1946912467}
   m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
 --- !u!157 &4
 LightmapSettings:
@@ -138,7 +138,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 122809148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 80, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1581520148}
@@ -259,6 +259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1126305203}
   - component: {fileID: 1126305202}
+  - component: {fileID: 1126305204}
   m_Layer: 0
   m_Name: TerrainManager
   m_TagString: Untagged
@@ -277,13 +278,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248a5126c37304654baff976d9ac83ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heightmap: {fileID: 2800000, guid: 0b6cbf5e52fc928458b53565eef6ad46, type: 3}
-  pixelWidthInMeters: 0.3
-  chunkWidthInPixels: 10
-  chunkRenderDistance: 2
+  heightmap: {fileID: 2800000, guid: 853996f3dbd14234e865454d7cd58f2d, type: 3}
+  pixelWidthInMeters: 1
+  chunkWidthInPixels: 40
+  chunkRenderDistance: 5
   terrainMaterial: {fileID: 2100000, guid: d1a6f3890a5874678b818f2775554676, type: 2}
   player: {fileID: 122809148}
-  heightInMeters: 4
+  heightInMeters: 121
   noiseSampleCount: 3
 --- !u!4 &1126305203
 Transform:
@@ -298,6 +299,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1126305204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1126305201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1a8123e1eab4bf3abb0d123069663c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIcon: {fileID: 2800000, guid: 655a4ac3b37ca2640b16c451fc41f6a3, type: 3}
 --- !u!1 &1581520143
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,8 +360,8 @@ Camera:
   m_GameObject: {fileID: 1581520143}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.89705884, g: 0.86303246, b: 0.6727941, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0

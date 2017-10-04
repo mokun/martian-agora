@@ -25,11 +25,15 @@ public class TerrainManager : MonoBehaviour
 		[SerializeField]
 		private float heightInMeters = 10;
 
+		[SerializeField]
+		private int noiseSampleCount=3;
+
 		private List<MeshRenderer> visibleChunks = new List<MeshRenderer> ();
 		private IntVector2 playerChunkCoordinate;
 		private bool isSetup=false;
 		private Dictionary<IntVector2,GameObject> chunks= new Dictionary<IntVector2, GameObject>();
 		private float chunkWidthInMeters;
+		private float heightmapWidthInMeters;
 		private GameObject chunkContainer;
 
 		// Use this for initialization
@@ -37,6 +41,15 @@ public class TerrainManager : MonoBehaviour
 		{
 				Setup ();
 				RefreshPlayerChunkCoordinate (true);
+		}
+
+		/// <summary>
+		/// Returns values 0 to 1 representing where the player is on the minimap.
+		/// </summary>
+		public Vector2 GetPlayerMinimapPosition(){
+				float x = Mathf.Clamp01 (player.transform.position.x / heightmapWidthInMeters);
+				float z = Mathf.Clamp01 (player.transform.position.z / heightmapWidthInMeters);
+				return new Vector2 (x, z);
 		}
 
 		private float GetValueFromImage(int x, int z){
@@ -47,6 +60,21 @@ public class TerrainManager : MonoBehaviour
 				}
 				Color color = heightmap.GetPixel(x, z);
 				return (color.r + color.g + color.b) / 3;
+		}
+
+		public Texture2D GetMinimapTexture(){
+				return heightmap;
+		}
+
+		private float GetNoisyHeight(int x, int z){
+				if (x % chunkWidthInPixels == 0 || z % chunkWidthInPixels == 0)
+						return GetHeight (x, z);
+
+				float heightSum = GetHeight(x,z)*noiseSampleCount;
+				for (int i = 0; i < noiseSampleCount; i++) {
+						heightSum += GetHeight (x + Random.Range (-1, 1), z + Random.Range (-1, 1));
+				}
+				return heightSum / (noiseSampleCount * 2);
 		}
 
 		private float GetHeight(int x, int z){
@@ -77,12 +105,14 @@ public class TerrainManager : MonoBehaviour
 				foreach (MeshRenderer r in visibleChunks) {
 						r.enabled = false;
 				}
+
 				visibleChunks = new List<MeshRenderer> ();
 				for (int i = -chunkRenderDistance; i <= chunkRenderDistance; i++) {
 						for (int j = -chunkRenderDistance; j <= chunkRenderDistance; j++) {
 								IntVector2 point = new IntVector2 (i+playerChunkCoordinate.x, j+playerChunkCoordinate.y);
-								MeshRenderer r = GetChunkMeshRendererAtPoint (point);
-								r.enabled = true;
+								MeshRenderer mr = GetChunkMeshRendererAtPoint (point);
+								visibleChunks.Add (mr);
+								mr.enabled = true;
 						}
 				}
 		}
@@ -105,6 +135,7 @@ public class TerrainManager : MonoBehaviour
 				vertices = new Vector3[(chunkWidthInPixels + 1) * (chunkWidthInPixels + 1)];
 				Vector2[] uv = new Vector2[vertices.Length];
 				Vector4[] tangents = new Vector4[vertices.Length];
+				Vector3[] normals = new Vector3[vertices.Length];
 				Vector4 tangent = new Vector4(1f, 0f, 0f, -1f);
 
 				int xOffset = chunkPoint.x * chunkWidthInPixels;
@@ -113,13 +144,18 @@ public class TerrainManager : MonoBehaviour
 				{
 						for (int x = 0; x <= chunkWidthInPixels; x++, i++)
 						{
-								float height = GetHeight(x+xOffset, z+zOffset);
+								float height = GetNoisyHeight(x+xOffset, z+zOffset);
 								vertices[i] = new Vector3(x * pixelWidthInMeters, height, z * pixelWidthInMeters);
 								uv[i] = new Vector2((float)x / chunkWidthInPixels, (float)z / chunkWidthInPixels);
-								tangents[i] = tangent;
+								//tangents[i]=tangent;
+								//tangents [i] = new Vector4 (Random.Range (-1f, 1f), Random.Range (-1f, 1f), Random.Range (-1f, 1f), Random.Range (-1f, 1f)).normalized;
+
+								//normals[i]=new Vector3(Random.Range(-1f,1f),Random.Range(-1f,1f),Random.Range(-1f,1f)).normalized;
+
 						}
 				}
 				mesh.vertices = vertices;
+				mesh.normals = normals;
 				mesh.uv = uv;
 				mesh.tangents = tangents;
 
@@ -159,6 +195,7 @@ public class TerrainManager : MonoBehaviour
 						return;
 
 				chunkWidthInMeters = pixelWidthInMeters * chunkWidthInPixels;
+				heightmapWidthInMeters = heightmap.width * pixelWidthInMeters;
 
 				chunkContainer = new GameObject ("chunks");
 

@@ -1,0 +1,228 @@
+fileFormatVersion: 2
+guid: f021c741ae3ec45d98da1360f72f1713
+timeCreated: 1507047608
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: glass
+    100002: hull
+    100004: //RootNode
+    100006: bak_glass_double_sided
+    100008: bak_glass_floating_hull
+    100010: bak_hull
+    100012: bak_hull_no_glass
+    100014: glass_frame
+    100016: rear_hull
+    100018: bak_rear_hulk
+    100020: rear_hatch_frame
+    100022: rear_door
+    100024: rear_door_rim
+    100026: back
+    100028: back_001
+    100030: chair
+    100032: chair_001
+    100034: chair_mount1
+    100036: chair_mount2
+    100038: Cylinder_001
+    100040: Cylinder_002
+    100042: head
+    100044: head_001
+    100046: side1
+    100048: side1_001
+    100050: side2
+    100052: side2_001
+    100054: wheel
+    400000: glass
+    400002: hull
+    400004: //RootNode
+    400006: bak_glass_double_sided
+    400008: bak_glass_floating_hull
+    400010: bak_hull
+    400012: bak_hull_no_glass
+    400014: glass_frame
+    400016: rear_hull
+    400018: bak_rear_hulk
+    400020: rear_hatch_frame
+    400022: rear_door
+    400024: rear_door_rim
+    400026: back
+    400028: back_001
+    400030: chair
+    400032: chair_001
+    400034: chair_mount1
+    400036: chair_mount2
+    400038: Cylinder_001
+    400040: Cylinder_002
+    400042: head
+    400044: head_001
+    400046: side1
+    400048: side1_001
+    400050: side2
+    400052: side2_001
+    400054: wheel
+    2100000: unnamed
+    2300000: glass
+    2300002: hull
+    2300004: //RootNode
+    2300006: bak_glass_double_sided
+    2300008: bak_glass_floating_hull
+    2300010: bak_hull
+    2300012: bak_hull_no_glass
+    2300014: glass_frame
+    2300016: rear_hull
+    2300018: bak_rear_hulk
+    2300020: rear_hatch_frame
+    2300022: rear_door
+    2300024: rear_door_rim
+    2300026: back
+    2300028: back_001
+    2300030: chair
+    2300032: chair_001
+    2300034: chair_mount1
+    2300036: chair_mount2
+    2300038: Cylinder_001
+    2300040: Cylinder_002
+    2300042: head
+    2300044: head_001
+    2300046: side1
+    2300048: side1_001
+    2300050: side2
+    2300052: side2_001
+    2300054: wheel
+    3300000: glass
+    3300002: hull
+    3300004: //RootNode
+    3300006: bak_glass_double_sided
+    3300008: bak_glass_floating_hull
+    3300010: bak_hull
+    3300012: bak_hull_no_glass
+    3300014: glass_frame
+    3300016: rear_hull
+    3300018: bak_rear_hulk
+    3300020: rear_hatch_frame
+    3300022: rear_door
+    3300024: rear_door_rim
+    3300026: back
+    3300028: back_001
+    3300030: chair
+    3300032: chair_001
+    3300034: chair_mount1
+    3300036: chair_mount2
+    3300038: Cylinder_001
+    3300040: Cylinder_002
+    3300042: head
+    3300044: head_001
+    3300046: side1
+    3300048: side1_001
+    3300050: side2
+    3300052: side2_001
+    3300054: wheel
+    4300000: glass
+    4300002: hull
+    4300004: bak_glass_double_sided
+    4300006: bak_hull_no_glass
+    4300008: bak_glass_floating_hull
+    4300010: glass_frame
+    4300012: bak_hull
+    4300014: rear_hull
+    4300016: rear_hatch_frame
+    4300018: bak_rear_hulk
+    4300020: rear_door_rim
+    4300022: rear_door
+    4300024: Cylinder_002
+    4300026: Cylinder_001
+    4300028: wheel
+    4300030: chair_001
+    4300032: side2_001
+    4300034: back_001
+    4300036: side1_001
+    4300038: head_001
+    4300040: chair
+    4300042: head
+    4300044: side1
+    4300046: back
+    4300048: side2
+    4300050: chair_mount2
+    4300052: chair_mount1
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    autoMapExternalMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
