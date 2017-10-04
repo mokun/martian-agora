@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: LowPoly
+  m_Name: LowPolyTerrain
   m_Shader: {fileID: 4800000, guid: 8122563da277f4e5683a1ce89184392f, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4

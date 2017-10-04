@@ -33,6 +33,8 @@ ModelImporter:
     100050: side2
     100052: side2_001
     100054: wheel
+    100056: wheel_link
+    100058: wheel_rim
     400000: glass
     400002: hull
     400004: //RootNode
@@ -61,7 +63,12 @@ ModelImporter:
     400050: side2
     400052: side2_001
     400054: wheel
+    400056: wheel_link
+    400058: wheel_rim
     2100000: unnamed
+    2100002: rover_rough
+    2100004: rover_shiny
+    2100006: rover_hull
     2300000: glass
     2300002: hull
     2300004: //RootNode
@@ -90,6 +97,8 @@ ModelImporter:
     2300050: side2
     2300052: side2_001
     2300054: wheel
+    2300056: wheel_link
+    2300058: wheel_rim
     3300000: glass
     3300002: hull
     3300004: //RootNode
@@ -118,6 +127,8 @@ ModelImporter:
     3300050: side2
     3300052: side2_001
     3300054: wheel
+    3300056: wheel_link
+    3300058: wheel_rim
     4300000: glass
     4300002: hull
     4300004: bak_glass_double_sided
@@ -145,6 +156,8 @@ ModelImporter:
     4300048: side2
     4300050: chair_mount2
     4300052: chair_mount1
+    4300054: wheel_rim
+    4300056: wheel_link
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}

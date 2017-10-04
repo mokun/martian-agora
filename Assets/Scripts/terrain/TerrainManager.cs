@@ -28,6 +28,9 @@ public class TerrainManager : MonoBehaviour
 		[SerializeField]
 		private int noiseSampleCount=3;
 
+		[SerializeField]
+		private int smoothRadius = 3;
+
 		private List<MeshRenderer> visibleChunks = new List<MeshRenderer> ();
 		private IntVector2 playerChunkCoordinate;
 		private bool isSetup=false;
@@ -134,8 +137,8 @@ public class TerrainManager : MonoBehaviour
 
 				vertices = new Vector3[(chunkWidthInPixels + 1) * (chunkWidthInPixels + 1)];
 				Vector2[] uv = new Vector2[vertices.Length];
-				Vector4[] tangents = new Vector4[vertices.Length];
-				Vector3[] normals = new Vector3[vertices.Length];
+				//Vector4[] tangents = new Vector4[vertices.Length];
+				//Vector3[] normals = new Vector3[vertices.Length];
 				Vector4 tangent = new Vector4(1f, 0f, 0f, -1f);
 
 				int xOffset = chunkPoint.x * chunkWidthInPixels;
@@ -154,10 +157,11 @@ public class TerrainManager : MonoBehaviour
 
 						}
 				}
+
 				mesh.vertices = vertices;
-				mesh.normals = normals;
+				//mesh.normals = normals;
 				mesh.uv = uv;
-				mesh.tangents = tangents;
+				//mesh.tangents = tangents;
 
 				int[] triangles = new int[chunkWidthInPixels * chunkWidthInPixels * 6];
 				for (int ti = 0, vi = 0, z = 0; z < chunkWidthInPixels; z++, vi++)

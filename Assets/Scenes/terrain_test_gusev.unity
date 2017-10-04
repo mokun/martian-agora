@@ -286,6 +286,7 @@ MonoBehaviour:
   player: {fileID: 122809148}
   heightInMeters: 121
   noiseSampleCount: 3
+  smoothRadius: 3
 --- !u!4 &1126305203
 Transform:
   m_ObjectHideFlags: 0
@@ -323,6 +324,7 @@ GameObject:
   - component: {fileID: 1581520146}
   - component: {fileID: 1581520145}
   - component: {fileID: 1581520144}
+  - component: {fileID: 1581520149}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -360,7 +362,7 @@ Camera:
   m_GameObject: {fileID: 1581520143}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.89705884, g: 0.86303246, b: 0.6727941, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -401,6 +403,14 @@ Transform:
   m_Father: {fileID: 122809149}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &1581520149
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1581520143}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 7e1309a31dfeb634580c4fb169388c2b, type: 2}
 --- !u!1 &1946912466
 GameObject:
   m_ObjectHideFlags: 0
