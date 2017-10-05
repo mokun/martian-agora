@@ -27,6 +27,7 @@ public class Blueprint : MonoBehaviour
 
 		private static GameObject blueprintNodePrefab;
 		private TerrainManager terrainManager;
+		private ClickController clickController;
 
 		public enum BlueprintModes
 		{
@@ -42,6 +43,7 @@ public class Blueprint : MonoBehaviour
 		{
 				blueprintRange = 100;
 				terrainManager = FindObjectOfType<TerrainManager> ();
+				clickController = FindObjectOfType<ClickController> ();
 		}
 
 		public static Material GetBlueprintMaterial ()
@@ -323,9 +325,9 @@ public class Blueprint : MonoBehaviour
 				}
 
 				if (blueprintMode == BlueprintModes.rotating || blueprintMode == BlueprintModes.expanding) {
-						MouseHoverInfo mhi = ClickController.GetMouseHoverInfo (blueprintRange);
+						MouseHoverInfo mhi = clickController.GetMouseHoverInfo (blueprintRange);
 
-						if (mhi.IsHit () && mhi.hoverObject.layer == LayerMask.NameToLayer ("Terrain")) {
+						if (mhi.IsHit && mhi.hoverObject.layer == LayerMask.NameToLayer ("Terrain")) {
 								Debug.Log ("mhi!");
 								blueprintStructure.transform.position = mhi.point;
 						}

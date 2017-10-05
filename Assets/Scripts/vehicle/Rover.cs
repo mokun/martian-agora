@@ -32,6 +32,7 @@ public class Rover : MonoBehaviour
 		private GameObject[] wheelGameObjects;
 
 		private RoverWheel[] wheels;
+		private GameManager gameManager;
 
 		private bool isSetup=false;
 
@@ -46,6 +47,8 @@ public class Rover : MonoBehaviour
 		private void Setup(){
 				if (isSetup)
 						return;
+
+				gameManager = FindObjectOfType<GameManager> ();
 
 				//find and set wheels
 				if (wheelGameObjects.Length == 0) {
@@ -148,7 +151,7 @@ public class Rover : MonoBehaviour
 				for (int i = 0; i < cameras.Count; i++)
 						cameras [i].enabled = cameraIndex == i;
 
-				CrewManager.GetActiveCrewCamera ().enabled = cameraIndex == cameras.Count;
+				gameManager.GetPlayerCamera().enabled = cameraIndex == cameras.Count;
 
 				cameraIndex++;
 				if (cameraIndex > cameras.Count)
@@ -162,7 +165,14 @@ public class Rover : MonoBehaviour
 		}
 
 		private void ReleaseDriver(){
+				GameObject player = gameManager.GetPlayer ();
 
+				TerrainManager tm=FindObjectOfType<TerrainManager> ();
+				float altitude = tm.GetHeightAtPoint (player.transform.position);
+
+				Vector3 newPosition=transform.position + transform.forward * 10;
+				newPosition.y = altitude + 2;
+				player.transform.position = newPosition;
 		}
 
 		private void OccupiedUpdate ()
@@ -190,8 +200,10 @@ public class Rover : MonoBehaviour
 				else
 						roverMode = RoverModes.driving;
 
-				if (Input.GetKeyDown (KeyCode.X)) {
+				if (Input.GetKeyDown (KeyCode.E)) {
+						Debug.Log (this + " is releasing the driver.");
 						ReleaseDriver ();
+						gameManager.GetCrew ().SetDrivingMode (false);
 						roverMode = RoverModes.parked;
 				}
 		}

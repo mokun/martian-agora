@@ -7,7 +7,7 @@ public static class BlueprintDesignManager
     public static List<BlueprintDesign> blueprintDesigns;
     private static Dictionary<ThingTypes, BlueprintDesign> thingTypeDesigns;
 
-    public static void Initialize()
+    public static void Setup()
     {
         thingTypeDesigns = new Dictionary<ThingTypes, BlueprintDesign>();
         blueprintDesigns = new List<BlueprintDesign>();

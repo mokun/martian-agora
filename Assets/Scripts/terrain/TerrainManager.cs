@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(GameManager))]
 public class TerrainManager : MonoBehaviour
 {
 		[SerializeField]
@@ -20,9 +21,6 @@ public class TerrainManager : MonoBehaviour
 		private Material terrainMaterial;
 
 		[SerializeField]
-		private GameObject player;
-
-		[SerializeField]
 		private float heightInMeters = 10;
 
 		[SerializeField]
@@ -31,6 +29,8 @@ public class TerrainManager : MonoBehaviour
 		[SerializeField]
 		private int smoothRadius = 3;
 
+		private GameManager gameManager;
+		private GameObject player;
 		private List<MeshRenderer> visibleChunks = new List<MeshRenderer> ();
 		private IntVector2 playerChunkCoordinate;
 		private bool isSetup=false;
@@ -207,6 +207,9 @@ public class TerrainManager : MonoBehaviour
 				if (isSetup)
 						return;
 
+				gameManager = GetComponent<GameManager> ();
+				player = gameManager.GetPlayer ();
+
 				chunkWidthInMeters = pixelWidthInMeters * chunkWidthInPixels;
 				heightmapWidthInMeters = heightmap.width * pixelWidthInMeters;
 
@@ -217,7 +220,7 @@ public class TerrainManager : MonoBehaviour
 						return;
 				}
 
-				if (heightmap == null || terrainMaterial == null || player == null) {
+				if (heightmap == null || terrainMaterial == null) {
 						Debug.LogError ("Setup failed. Null values in inspector.");
 						return;
 				}

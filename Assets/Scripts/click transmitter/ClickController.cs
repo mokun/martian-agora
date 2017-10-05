@@ -5,23 +5,23 @@ public class ClickController : MonoBehaviour
     //detects when the player clicks on a click transmitter.
     //if they do, it transmits the signal to right click receivers.
     private float range = 10;
-    private static int clickMask;
     
-    private static MouseHoverInfo lastMouseHouseInfo;
+    private MouseHoverInfo lastMouseHouseInfo;
+		private GameManager gameManager;
+		private Crew crew;
 
     void Start()
     {
-        clickMask = LayerMask.NameToLayer("VehicleBox");
-        clickMask = ~clickMask;
+				gameManager = FindObjectOfType<GameManager> ();
+				crew = gameManager.GetPlayer ().GetComponent<Crew> ();
     }
 
-    public static MouseHoverInfo GetMouseHoverInfo(float range)
+    public MouseHoverInfo GetMouseHoverInfo(float range)
     {
         //update lastMouseHouseInfo if we haven't done it this frame
         if (lastMouseHouseInfo == null || lastMouseHouseInfo.frameNumber != Time.frameCount)
         {
-            Vector3 pos = CrewManager.GetActiveCrew().GetCrewCamera().transform.position;
-            Crew crew = CrewManager.GetActiveCrew();
+						Vector3 pos = gameManager.GetPlayer().transform.position;
             RaycastHit rayCastHit = new RaycastHit();
             bool isHit = Physics.Linecast(pos, pos + crew.GetCrewCamera().transform.forward * range, out rayCastHit);
             lastMouseHouseInfo = new MouseHoverInfo(rayCastHit);
@@ -35,8 +35,8 @@ public class ClickController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            MouseHoverInfo mhi = ClickController.GetMouseHoverInfo(CrewManager.GetActiveCrew().reachRange);
-            if (mhi.IsHit())
+						MouseHoverInfo mhi = GetMouseHoverInfo(crew.reachRange);
+            if (mhi.IsHit)
             {
                 ClickTransmitter clickTransmitter = mhi.hoverObject.GetComponent<ClickTransmitter>();
                 if (clickTransmitter != null)
@@ -114,8 +114,10 @@ public class MouseHoverInfo
         return terrain;
     }
 
-    public bool IsHit()
+    public bool IsHit
     {
-        return hoverObject != null;
+				get{
+						return hoverObject != null;
+				}
     }
 }

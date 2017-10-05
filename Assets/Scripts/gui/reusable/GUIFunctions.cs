@@ -14,7 +14,7 @@ public static class GUIFunctions
     public const float heightOfWindowBar = 18;
     public const float verticalBarWidth = 15;
 
-    public static void Initialize()
+    public static void Setup()
     {
         standardFont = Resources.Load("fonts/nulshock bd") as Font;
         SetGUIStyles();

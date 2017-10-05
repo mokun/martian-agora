@@ -3,41 +3,55 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameObject activePlayer;
-    private static Crew crewStatus;
+		[SerializeField]
+		private GameObject player;
 
-    public static float RecalculateWaitSeconds = 1;
+		public static float RecalculateWaitSeconds = 1;
 
-    //real world seconds = game hours * timeFactor
-    public const float timeFactor = 1;
+		//real world seconds = game hours * timeFactor
+		public const float timeFactor = 1;
+		private bool isSetup = false;
+		private Crew crew;
 
-    void Start()
-    {
-        gameObject.AddComponent<GUIManager>();
-        gameObject.AddComponent<CrewManager>();
-        CrewManager.GetActiveCrewGameObject().transform.position = transform.position;
-        //gameObject.AddComponent<BaseManager>();
+		void Start ()
+		{
+				Setup ();
+		}
 
-        ThingFactory.Initialize();
-        GUIFunctions.Initialize();
-        BlueprintDesignManager.Initialize();
+		private void Setup(){
+				if (isSetup)
+						return;
 
-        SetColliderMasks();
-        SetupPreplacedStructures();
-    }
+				gameObject.AddComponent<GUIManager> ();
+				gameObject.AddComponent<ClickController> ();
 
-    private void SetupPreplacedStructures()
-    {
-        foreach (StructureController sc in GameObject.FindObjectsOfType<StructureController>())
-            sc.SetupRealStructure();
-    }
-    
-    private static void SetColliderMasks()
-    {
-        //int mask = 1 << LayerMask.NameToLayer(layerName);
-        //mask = ~mask;
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("VehicleBox"), LayerMask.NameToLayer("People"));
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("VehicleMesh"), LayerMask.NameToLayer("Terrain"));
-    }
+				crew = player.GetComponent<Crew> ();
 
+				ThingFactory.Setup ();
+				GUIFunctions.Setup ();
+				BlueprintDesignManager.Setup ();
+
+				//setup structures that are already in scene
+				foreach (StructureController sc in GameObject.FindObjectsOfType<StructureController>())
+						sc.SetupRealStructure ();
+
+				isSetup = true;
+		}
+
+		public Crew GetCrew(){
+				return crew;
+		}
+
+		public GameObject GetPlayer ()
+		{
+				return player;
+		}
+
+		public Camera GetPlayerCamera(){
+				foreach (Camera c in gameObject.GetComponentsInChildren<Camera>(true))
+						return c;
+				Debug.LogError (this + " failed to find camera.");
+				isSetup = false;
+				return null;
+		}
 }

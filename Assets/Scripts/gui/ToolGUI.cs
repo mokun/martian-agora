@@ -4,95 +4,89 @@ using System.Collections.Generic;
 
 public class ToolGUI : MonoBehaviour
 {
-    //ToolGUI controls models that appear in front of the camera as though you are holding them
-    private bool isMoving;
-    private float moveTimer;
-    private float moveDuration;
-    private GameObject tool, player;
-    private ThingTypes selectedThingType;
+		//ToolGUI controls models that appear in front of the camera as though you are holding them
+		private bool isMoving;
+		private float moveTimer;
+		private float moveDuration;
+		private GameObject tool, player;
+		private ThingTypes selectedThingType;
 
-    private Transform toolUpTransform, toolDownTransform;
+		private Transform toolUpTransform, toolDownTransform;
 
-    private static Dictionary<ThingTypes, GameObject> toolGUIPrefabs;
+		private static Dictionary<ThingTypes, GameObject> toolGUIPrefabs;
 
-    void Start()
-    {
-        moveDuration = 0.5f;
+		void Start ()
+		{
+				moveDuration = 0.5f;
 
-        player = CrewManager.GetActiveCrewGameObject();
-        foreach (GameObject child in ParentChildFunctions.GetAllChildren(player))
-        {
-            if (child.name.Equals("tool up"))
-                toolUpTransform = child.transform;
-            if (child.name.Equals("tool down"))
-                toolDownTransform = child.transform;
-        }
-        if (toolUpTransform == null || toolDownTransform == null)
-            Debug.LogError("ToolGUI failed to find 'tool down' or 'tool up'. up=" + toolUpTransform + " down=" + toolDownTransform);
+				GameManager gameManager = FindObjectOfType<GameManager> ();
+				player = gameManager.GetPlayer ();
+				foreach (GameObject child in ParentChildFunctions.GetAllChildren(player)) {
+						if (child.name.Equals ("tool up"))
+								toolUpTransform = child.transform;
+						if (child.name.Equals ("tool down"))
+								toolDownTransform = child.transform;
+				}
+				if (toolUpTransform == null || toolDownTransform == null)
+						Debug.LogError ("ToolGUI failed to find 'tool down' or 'tool up'. up=" + toolUpTransform + " down=" + toolDownTransform);
 
-        toolGUIPrefabs = new Dictionary<ThingTypes, GameObject>();
-    }
+				toolGUIPrefabs = new Dictionary<ThingTypes, GameObject> ();
+		}
 
-    void Update()
-    {
-        if (isMoving && tool!=null)
-        {
-            moveTimer += Time.deltaTime;
-            if (moveTimer < moveDuration)
-            {
-                float ratio = moveTimer / moveDuration;
-                tool.transform.position = Vector3.Lerp(toolDownTransform.position, toolUpTransform.position, ratio);
-                tool.transform.rotation = Quaternion.Slerp(toolDownTransform.rotation, toolUpTransform.rotation, ratio);
-            }
-            else
-            {
-                tool.transform.position = toolUpTransform.position;
-                tool.transform.rotation = toolUpTransform.rotation;
-                isMoving = false;
-            }
-        }
-    }
+		void Update ()
+		{
+				if (isMoving && tool != null) {
+						moveTimer += Time.deltaTime;
+						if (moveTimer < moveDuration) {
+								float ratio = moveTimer / moveDuration;
+								tool.transform.position = Vector3.Lerp (toolDownTransform.position, toolUpTransform.position, ratio);
+								tool.transform.rotation = Quaternion.Slerp (toolDownTransform.rotation, toolUpTransform.rotation, ratio);
+						} else {
+								tool.transform.position = toolUpTransform.position;
+								tool.transform.rotation = toolUpTransform.rotation;
+								isMoving = false;
+						}
+				}
+		}
 
-    private static GameObject GetToolGUIPrefab(ThingTypes thingType)
-    {
-        if (!toolGUIPrefabs.ContainsKey(thingType))
-        {
-            string path = "gui/" + ThingFactory.GetKeyFromThingType(thingType);
-            GameObject toolGUIPrefab = Resources.Load(path) as GameObject;
+		private static GameObject GetToolGUIPrefab (ThingTypes thingType)
+		{
+				if (!toolGUIPrefabs.ContainsKey (thingType)) {
+						string path = "gui/" + ThingFactory.GetKeyFromThingType (thingType);
+						GameObject toolGUIPrefab = Resources.Load (path) as GameObject;
 
-            if (toolGUIPrefab == null)
-                Debug.LogError("GetToolGUIPrefab failed to load prefab: " + path);
-            toolGUIPrefabs.Add(thingType, toolGUIPrefab);
-        }
-        return toolGUIPrefabs[thingType];
-    }
+						if (toolGUIPrefab == null)
+								Debug.LogError ("GetToolGUIPrefab failed to load prefab: " + path);
+						toolGUIPrefabs.Add (thingType, toolGUIPrefab);
+				}
+				return toolGUIPrefabs [thingType];
+		}
 
-    public void UnselectTool()
-    {
-        Destroy(tool);
-    }
+		public void UnselectTool ()
+		{
+				Destroy (tool);
+		}
 
-    public void SelectTool(ThingTypes thingType,bool animateIfIdenticalThingType)
-    {
-        if (selectedThingType == thingType && !animateIfIdenticalThingType)
-            return;
+		public void SelectTool (ThingTypes thingType, bool animateIfIdenticalThingType)
+		{
+				if (selectedThingType == thingType && !animateIfIdenticalThingType)
+						return;
 
-        if (tool != null)
-            Destroy(tool);
+				if (tool != null)
+						Destroy (tool);
         
-        if (!ThingFactory.IsTool(thingType))
-        {
-            Debug.LogError("ToolGUI.SelectTool got non-tool. " + thingType);
-            return;
-        }
+				if (!ThingFactory.IsTool (thingType)) {
+						Debug.LogError ("ToolGUI.SelectTool got non-tool. " + thingType);
+						return;
+				}
 
-        selectedThingType = thingType;
-        isMoving = true;
-        moveTimer = 0;
-        tool = Instantiate(GetToolGUIPrefab(thingType)) as GameObject;
-        tool.transform.parent = player.transform;
+				selectedThingType = thingType;
+				isMoving = true;
+				moveTimer = 0;
+				tool = Instantiate (GetToolGUIPrefab (thingType)) as GameObject;
+				tool.transform.parent = player.transform;
 
-        tool.transform.position = toolDownTransform.position;
-        tool.transform.rotation = toolDownTransform.rotation;
-    }
+				tool.transform.position = toolDownTransform.position;
+				tool.transform.rotation = toolDownTransform.rotation;
+		}
 }

@@ -8,23 +8,16 @@ public class ClickTransmitter : MonoBehaviour
 
     //if clickReceiverGameObjects is empty, find closest clickReceiver
     public List<GameObject> clickReceiverGameObjects;
+		private GameManager gameManager;
     private GameObject player;
 
     void Start()
     {
-        player = CrewManager.GetActiveCrewGameObject();
-        if (player == null)
-        {
-            Debug.LogError("Couldn't find a GameObject named \"player\".");
-            enabled = false;
-            return;
-        }
+				gameManager = FindObjectOfType<GameManager> ();
+				player = gameManager.GetPlayer ();
 
         if (gameObject.GetComponent<ClickableItem>() == null)
             gameObject.AddComponent<ClickableItem>();
-
-        if (FindObjectOfType<ClickController>() == null)
-            player.AddComponent<ClickController>();
     }
 
     public bool FindsClosestReceiver()
