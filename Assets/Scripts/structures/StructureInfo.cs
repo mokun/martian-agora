@@ -71,7 +71,7 @@ public class StructureInfo
             SetConstant(ResourceTypes.water, 0, 12000);
         if (thingType == ThingTypes.tanklarge)
             SetConstant(ResourceTypes.water, 0, 96000);
-        if (thingType == ThingTypes.flywheel)
+        if (thingType == ThingTypes.flyRoverWheel)
             SetConstant(ResourceTypes.electricity, 0, 120);
         if (thingType == ThingTypes.oxygencrate)
             SetConstant(ResourceTypes.oxygen, 0, 1800);

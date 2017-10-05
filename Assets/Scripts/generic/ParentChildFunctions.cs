@@ -17,7 +17,7 @@ public static class ParentChildFunctions
 
     public static List<GameObject> GetAllChildrenWithName(GameObject parentGameObject, string substring, string excludeSubstring)
     {
-        //when substring is "wheel", returns all gameobjects with names like "wheel2" and "wheel-FR" and "superwheel"
+        //when substring is "RoverWheel", returns all gameobjects with names like "RoverWheel2" and "RoverWheel-FR" and "superRoverWheel"
         List<GameObject> children = new List<GameObject>();
         foreach (GameObject child in GetAllChildren(parentGameObject, true))
         {

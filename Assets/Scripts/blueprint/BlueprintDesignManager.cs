@@ -102,7 +102,7 @@ public static class BlueprintDesignManager
             bd.AddThing(ThingTypes.lithiumbattery, 8, 1, "battery");
             bd.AddTool(ThingTypes.wirecutters, 25, 1, "display");
         }
-        else if (bd.thingType == ThingTypes.flywheel)
+        else if (bd.thingType == ThingTypes.flyRoverWheel)
         {
             bd.AddThing(ThingTypes.steel, 3, 1, "cylinder");
             bd.AddThing(ThingTypes.steel, 3, 1, "top");

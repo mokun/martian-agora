@@ -35,6 +35,61 @@ ModelImporter:
     100054: wheel
     100056: wheel_link
     100058: wheel_rim
+    100060: antenna
+    100062: backup
+    100064: bevel_panel
+    100066: box
+    100068: camera_head
+    100070: camera_tower
+    100072: chair_L
+    100074: chair_R
+    100076: Cube
+    100078: Cube_001
+    100080: Cylinder_003
+    100082: Cylinder_004
+    100084: Cylinder_005
+    100086: Cylinder_006
+    100088: Cylinder_007
+    100090: gas_tanks
+    100092: greeble
+    100094: kit
+    100096: robot_arm
+    100098: solar_panels
+    100100: supports
+    100102: wheel_frame
+    100104: wheel_L1
+    100106: wheel_L2
+    100108: wheel_L3
+    100110: wheel_link_001
+    100112: wheel_link_002
+    100114: wheel_link_003
+    100116: wheel_link_004
+    100118: wheel_link_005
+    100120: wheel_R1
+    100122: wheel_R2
+    100124: wheel_R3
+    100126: wheel_rim_001
+    100128: wheel_rim_002
+    100130: wheel_rim_003
+    100132: wheel_rim_004
+    100134: wheel_rim_005
+    100136: wheels
+    100138: a_mirror
+    100140: wheel_spokes
+    100142: wheel_spokes_001
+    100144: wheel_spokes_002
+    100146: wheel_spokes_003
+    100148: wheel_spokes_004
+    100150: wheel_spokes_005
+    100152: arm1
+    100154: arm2
+    100156: arm3
+    100158: arm4
+    100160: arm5
+    100162: arm6
+    100164: arm7
+    100166: finger
+    100168: finger_001
     400000: glass
     400002: hull
     400004: //RootNode
@@ -65,10 +120,71 @@ ModelImporter:
     400054: wheel
     400056: wheel_link
     400058: wheel_rim
+    400060: antenna
+    400062: backup
+    400064: bevel_panel
+    400066: box
+    400068: camera_head
+    400070: camera_tower
+    400072: chair_L
+    400074: chair_R
+    400076: Cube
+    400078: Cube_001
+    400080: Cylinder_003
+    400082: Cylinder_004
+    400084: Cylinder_005
+    400086: Cylinder_006
+    400088: Cylinder_007
+    400090: gas_tanks
+    400092: greeble
+    400094: kit
+    400096: robot_arm
+    400098: solar_panels
+    400100: supports
+    400102: wheel_frame
+    400104: wheel_L1
+    400106: wheel_L2
+    400108: wheel_L3
+    400110: wheel_link_001
+    400112: wheel_link_002
+    400114: wheel_link_003
+    400116: wheel_link_004
+    400118: wheel_link_005
+    400120: wheel_R1
+    400122: wheel_R2
+    400124: wheel_R3
+    400126: wheel_rim_001
+    400128: wheel_rim_002
+    400130: wheel_rim_003
+    400132: wheel_rim_004
+    400134: wheel_rim_005
+    400136: wheels
+    400138: a_mirror
+    400140: wheel_spokes
+    400142: wheel_spokes_001
+    400144: wheel_spokes_002
+    400146: wheel_spokes_003
+    400148: wheel_spokes_004
+    400150: wheel_spokes_005
+    400152: arm1
+    400154: arm2
+    400156: arm3
+    400158: arm4
+    400160: arm5
+    400162: arm6
+    400164: arm7
+    400166: finger
+    400168: finger_001
     2100000: unnamed
     2100002: rover_rough
     2100004: rover_shiny
     2100006: rover_hull
+    2100008: rover_plastic
+    2100010: rover_solar
+    2100012: rover_wheel
+    2100014: rover_fuzzy
+    2100016: rover_rubber
+    2100018: rover_glass
     2300000: glass
     2300002: hull
     2300004: //RootNode
@@ -99,6 +215,61 @@ ModelImporter:
     2300054: wheel
     2300056: wheel_link
     2300058: wheel_rim
+    2300060: antenna
+    2300062: backup
+    2300064: bevel_panel
+    2300066: box
+    2300068: camera_head
+    2300070: camera_tower
+    2300072: chair_L
+    2300074: chair_R
+    2300076: Cube
+    2300078: Cube_001
+    2300080: Cylinder_003
+    2300082: Cylinder_004
+    2300084: Cylinder_005
+    2300086: Cylinder_006
+    2300088: Cylinder_007
+    2300090: gas_tanks
+    2300092: greeble
+    2300094: kit
+    2300096: robot_arm
+    2300098: solar_panels
+    2300100: supports
+    2300102: wheel_frame
+    2300104: wheel_L1
+    2300106: wheel_L2
+    2300108: wheel_L3
+    2300110: wheel_link_001
+    2300112: wheel_link_002
+    2300114: wheel_link_003
+    2300116: wheel_link_004
+    2300118: wheel_link_005
+    2300120: wheel_R1
+    2300122: wheel_R2
+    2300124: wheel_R3
+    2300126: wheel_rim_001
+    2300128: wheel_rim_002
+    2300130: wheel_rim_003
+    2300132: wheel_rim_004
+    2300134: wheel_rim_005
+    2300136: wheels
+    2300138: a_mirror
+    2300140: wheel_spokes
+    2300142: wheel_spokes_001
+    2300144: wheel_spokes_002
+    2300146: wheel_spokes_003
+    2300148: wheel_spokes_004
+    2300150: wheel_spokes_005
+    2300152: arm1
+    2300154: arm2
+    2300156: arm3
+    2300158: arm4
+    2300160: arm5
+    2300162: arm6
+    2300164: arm7
+    2300166: finger
+    2300168: finger_001
     3300000: glass
     3300002: hull
     3300004: //RootNode
@@ -129,6 +300,61 @@ ModelImporter:
     3300054: wheel
     3300056: wheel_link
     3300058: wheel_rim
+    3300060: antenna
+    3300062: backup
+    3300064: bevel_panel
+    3300066: box
+    3300068: camera_head
+    3300070: camera_tower
+    3300072: chair_L
+    3300074: chair_R
+    3300076: Cube
+    3300078: Cube_001
+    3300080: Cylinder_003
+    3300082: Cylinder_004
+    3300084: Cylinder_005
+    3300086: Cylinder_006
+    3300088: Cylinder_007
+    3300090: gas_tanks
+    3300092: greeble
+    3300094: kit
+    3300096: robot_arm
+    3300098: solar_panels
+    3300100: supports
+    3300102: wheel_frame
+    3300104: wheel_L1
+    3300106: wheel_L2
+    3300108: wheel_L3
+    3300110: wheel_link_001
+    3300112: wheel_link_002
+    3300114: wheel_link_003
+    3300116: wheel_link_004
+    3300118: wheel_link_005
+    3300120: wheel_R1
+    3300122: wheel_R2
+    3300124: wheel_R3
+    3300126: wheel_rim_001
+    3300128: wheel_rim_002
+    3300130: wheel_rim_003
+    3300132: wheel_rim_004
+    3300134: wheel_rim_005
+    3300136: wheels
+    3300138: a_mirror
+    3300140: wheel_spokes
+    3300142: wheel_spokes_001
+    3300144: wheel_spokes_002
+    3300146: wheel_spokes_003
+    3300148: wheel_spokes_004
+    3300150: wheel_spokes_005
+    3300152: arm1
+    3300154: arm2
+    3300156: arm3
+    3300158: arm4
+    3300160: arm5
+    3300162: arm6
+    3300164: arm7
+    3300166: finger
+    3300168: finger_001
     4300000: glass
     4300002: hull
     4300004: bak_glass_double_sided
@@ -158,6 +384,61 @@ ModelImporter:
     4300052: chair_mount1
     4300054: wheel_rim
     4300056: wheel_link
+    4300058: backup
+    4300060: gas_tanks
+    4300062: greeble
+    4300064: kit
+    4300066: box
+    4300068: camera_tower
+    4300070: camera_head
+    4300072: solar_panels
+    4300074: supports
+    4300076: robot_arm
+    4300078: Cube_001
+    4300080: Cube
+    4300082: Cylinder_007
+    4300084: Cylinder_006
+    4300086: Cylinder_005
+    4300088: Cylinder_004
+    4300090: Cylinder_003
+    4300092: bevel_panel
+    4300094: antenna
+    4300096: wheels
+    4300098: wheel_R1
+    4300100: wheel_rim_005
+    4300102: wheel_link_005
+    4300104: wheel_R3
+    4300106: wheel_link_003
+    4300108: wheel_rim_003
+    4300110: wheel_L3
+    4300112: wheel_rim_002
+    4300114: wheel_link_002
+    4300116: wheel_L1
+    4300118: wheel_R2
+    4300120: wheel_rim_004
+    4300122: wheel_link_004
+    4300124: wheel_L2
+    4300126: wheel_link_001
+    4300128: wheel_rim_001
+    4300130: wheel_frame
+    4300132: chair_L
+    4300134: chair_R
+    4300136: a_mirror
+    4300138: wheel_spokes_005
+    4300140: wheel_spokes_004
+    4300142: wheel_spokes_003
+    4300144: wheel_spokes_002
+    4300146: wheel_spokes_001
+    4300148: wheel_spokes
+    4300150: finger_001
+    4300152: finger
+    4300154: arm7
+    4300156: arm6
+    4300158: arm5
+    4300160: arm4
+    4300162: arm3
+    4300164: arm2
+    4300166: arm1
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}

@@ -9,7 +9,7 @@ public enum StructureTypes
     windturbine,
     solarpanel,
     plasticdome,
-    flywheel,
+    flyRoverWheel,
     oxygencrate,
     lithiumcrate,
     tanksmall,
@@ -188,7 +188,7 @@ public class StructureController : MonoBehaviour
             thingAndStructurePairs.Add(StructureTypes.solarpanel, ThingTypes.solarpanel);
             thingAndStructurePairs.Add(StructureTypes.windturbine, ThingTypes.windturbine);
             thingAndStructurePairs.Add(StructureTypes.plasticdome, ThingTypes.plasticdome);
-            thingAndStructurePairs.Add(StructureTypes.flywheel, ThingTypes.flywheel);
+            thingAndStructurePairs.Add(StructureTypes.flyRoverWheel, ThingTypes.flyRoverWheel);
             thingAndStructurePairs.Add(StructureTypes.oxygencrate, ThingTypes.oxygencrate);
             thingAndStructurePairs.Add(StructureTypes.lithiumcrate, ThingTypes.lithiumcrate);
             thingAndStructurePairs.Add(StructureTypes.tanklarge, ThingTypes.tanklarge);
@@ -234,7 +234,7 @@ public class StructureController : MonoBehaviour
 
         //generic storage
         if (structureType == StructureTypes.tanklarge || structureType == StructureTypes.tanksmall ||
-            structureType == StructureTypes.flywheel || structureType == StructureTypes.lithiumcrate ||
+            structureType == StructureTypes.flyRoverWheel || structureType == StructureTypes.lithiumcrate ||
             structureType == StructureTypes.oxygencrate || structureType == StructureTypes.chargingstation)
             gameObject.AddComponent<GenericStorage>();
 

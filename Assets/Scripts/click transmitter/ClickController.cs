@@ -48,11 +48,7 @@ public class ClickController : MonoBehaviour
     private void HitClickTransmitter(ClickTransmitter clickTransmitter)
     {
         //called when clickTransmitter has been activated.
-        if (clickTransmitter.vehicleController != null)
-        {
-            clickTransmitter.vehicleController.GetDriverSeat().GrabActivePlayer();
-        }
-        else if (clickTransmitter.FindsClosestReceiver())
+        if (clickTransmitter.FindsClosestReceiver())
         {
             ActivateClosestClickReceiver(clickTransmitter);
         }

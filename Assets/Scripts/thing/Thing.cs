@@ -37,7 +37,7 @@ public enum ThingTypes
     iron=30,
     plexiglass=31,
     plasticsheet=32,
-    flywheel=33,
+    flyRoverWheel=33,
     oxygencrate=34,
     lithiumcrate=35,
     tanklarge=36,

@@ -8,7 +8,6 @@ public class ClickTransmitter : MonoBehaviour
 
     //if clickReceiverGameObjects is empty, find closest clickReceiver
     public List<GameObject> clickReceiverGameObjects;
-    public VehicleController vehicleController;
     private GameObject player;
 
     void Start()
@@ -31,6 +30,6 @@ public class ClickTransmitter : MonoBehaviour
     public bool FindsClosestReceiver()
     {
         //returns true if this transmitter is meant to find the closest clickReceiver
-        return vehicleController==null && clickReceiverGameObjects.Count == 0;
+        return clickReceiverGameObjects.Count == 0;
     }
 }

@@ -50,6 +50,8 @@ public class TerrainManager : MonoBehaviour
 		/// Returns values 0 to 1 representing where the player is on the minimap.
 		/// </summary>
 		public Vector2 GetPlayerMinimapPosition(){
+				if (!isSetup)
+						return Vector2.zero;
 				float x = Mathf.Clamp01 (player.transform.position.x / heightmapWidthInMeters);
 				float z = Mathf.Clamp01 (player.transform.position.z / heightmapWidthInMeters);
 				return new Vector2 (x, z);
@@ -78,6 +80,12 @@ public class TerrainManager : MonoBehaviour
 						heightSum += GetHeight (x + Random.Range (-1, 1), z + Random.Range (-1, 1));
 				}
 				return heightSum / (noiseSampleCount * 2);
+		}
+
+		public float GetHeightAtPoint(Vector3 point){
+				int x = Mathf.RoundToInt(point.x / pixelWidthInMeters);
+				int z = Mathf.RoundToInt(point.z / pixelWidthInMeters);
+				return GetHeight (x, z);
 		}
 
 		private float GetHeight(int x, int z){
@@ -127,6 +135,7 @@ public class TerrainManager : MonoBehaviour
 				GameObject chunk = new GameObject ("chunk " + chunkPoint);
 				chunk.transform.position = new Vector3 (chunkPoint.x * chunkWidthInMeters, 0, chunkPoint.y * chunkWidthInMeters);
 				chunk.transform.parent = chunkContainer.transform;
+				chunk.layer = LayerMask.NameToLayer ("Terrain");
 				MeshFilter mf= chunk.AddComponent<MeshFilter> ();
 				MeshRenderer mr= chunk.AddComponent<MeshRenderer> ();
 				mr.material = terrainMaterial;

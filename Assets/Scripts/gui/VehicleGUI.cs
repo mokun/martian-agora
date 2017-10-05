@@ -21,7 +21,7 @@ public class VehicleGUI : MonoBehaviour
     {
         while (true)
         {
-            VehicleController vc = CrewManager.GetActiveCrew().GetVehicleController();
+            Rover vc = CrewManager.GetActiveCrew().GetVehicleController();
             float velocity = 0;
             if (vc != null)
             {

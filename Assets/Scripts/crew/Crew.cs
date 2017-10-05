@@ -15,7 +15,7 @@ public class Crew : MonoBehaviour
     public float reachRange;
     private float batteryEnergy;
     private Camera crewCamera;
-    private VehicleController vehicleController;
+    private Rover vehicleController;
 
     public Thing[] inventory;
     void Start()
@@ -80,9 +80,9 @@ public class Crew : MonoBehaviour
         return 3;
     }
 
-    public VehicleController GetVehicleController()
+    public Rover GetVehicleController()
     {
-        return VehicleController.GetVehicleControllerFromChild(gameObject);
+        return Rover.GetVehicleControllerFromChild(gameObject);
     }
 
     public int GetInventoryIndexFromSlotIndex(int slotIndex)
