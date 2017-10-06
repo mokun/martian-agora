@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
 		[SerializeField]
 		private GameObject player;
+
+		[SerializeField]
+		private bool allowRestarts=true;
 
 		public static float RecalculateWaitSeconds = 1;
 
@@ -16,6 +20,11 @@ public class GameManager : MonoBehaviour
 		void Start ()
 		{
 				Setup ();
+		}
+
+		void Update(){
+				if (allowRestarts && Input.GetKeyDown (KeyCode.R))
+						SceneManager.LoadScene (0);
 		}
 
 		private void Setup(){
@@ -32,8 +41,10 @@ public class GameManager : MonoBehaviour
 				BlueprintDesignManager.Setup ();
 
 				//setup structures that are already in scene
-				foreach (StructureController sc in GameObject.FindObjectsOfType<StructureController>())
+				foreach (StructureController sc in GameObject.FindObjectsOfType<StructureController>()) {
 						sc.SetupRealStructure ();
+						sc.SetAltitudeToMatchTerrain ();
+				}
 
 				isSetup = true;
 		}

@@ -59,7 +59,7 @@ public class Crew : MonoBehaviour
 
 		private void ExitRover(){
 				Debug.Log (this + " ExitRover.");
-				occupiedRover.Park ();
+				occupiedRover.SetMode (RoverModes.parked);
 
 				Vector3 newPosition=occupiedRover.transform.position - occupiedRover.transform.forward * 10;
 				float altitude = terrainManager.GetHeightAtPoint (newPosition);

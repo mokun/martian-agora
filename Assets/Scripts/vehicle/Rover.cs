@@ -42,6 +42,7 @@ public class Rover : MonoBehaviour
 		private float wheelCircumference;
 
 		private bool isSetup=false;
+		private bool hasBeenDriven=false;
 
 		//optimization: test_rover eats frames, up until it is moved forward 1cm..?
 
@@ -118,6 +119,10 @@ public class Rover : MonoBehaviour
 		public void SetMode (RoverModes newVehicleMode)
 		{
 				roverMode = newVehicleMode;
+				if (roverMode == RoverModes.driving) {
+						hasBeenDriven = true;
+						GetComponent<Rigidbody> ().isKinematic = false;
+				}
 				DisableCameras ();
 		}
 
@@ -161,10 +166,6 @@ public class Rover : MonoBehaviour
 		{
 				for (int i = 0; i < cameras.Count; i++)
 						cameras [i].enabled = false;
-		}
-
-		public void Park(){
-				roverMode = RoverModes.parked;
 		}
 
 		private void OccupiedUpdate ()
@@ -270,6 +271,8 @@ public class Rover : MonoBehaviour
 
 						}
 				}
+				if (!hasBeenDriven && wheelTouchCounter == wheelGameObjects.Length)
+						rb.isKinematic = true;
 
 				DampenMovementWithSuspension (wheelTouchCounter);
 
@@ -285,7 +288,6 @@ public class Rover : MonoBehaviour
 				if (roverMode == RoverModes.driving) {
 						float metersThisFrame = rb.velocity.magnitude * Time.fixedDeltaTime;
 						float angle = (metersThisFrame / wheelCircumference)*360;
-						Debug.Log ("angle = " + angle);
 						foreach (GameObject wheelGO in rotatingWheelGameObjects) {
 								wheelGO.transform.RotateAround (wheelGO.transform.position, wheelGO.transform.right, angle);
 						}

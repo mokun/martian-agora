@@ -328,7 +328,6 @@ public class Blueprint : MonoBehaviour
 						MouseHoverInfo mhi = clickController.GetMouseHoverInfo (blueprintRange);
 
 						if (mhi.IsHit && mhi.hoverObject.layer == LayerMask.NameToLayer ("Terrain")) {
-								Debug.Log ("mhi!");
 								blueprintStructure.transform.position = mhi.point;
 						}
 				}

@@ -12,6 +12,16 @@ public class GreebleCameraRotate : MonoBehaviour {
 
 		private float secondsLeft=0;
 		private float rotateMultiplier=1;
+		private Rover rover=null;
+
+		void Start(){
+				Transform parent = transform;
+				while (parent != null && parent.gameObject.GetComponent<Rover> () == null)
+						parent = parent.transform.parent;
+
+				if(parent!=null)
+						rover = parent.gameObject.GetComponent<Rover> ();
+		}
 
 	void Update () {
 				secondsLeft -= Time.deltaTime;
@@ -27,11 +37,11 @@ public class GreebleCameraRotate : MonoBehaviour {
 								if (Random.Range (0, 2) < 1)
 										rotateMultiplier *= -1;
 						}
-						
+
 				}
 
-				if (status == CameraStatus.rotating) {
-						transform.RotateAround (transform.position, Vector3.up, Time.deltaTime * rotateMultiplier);
+				if (status == CameraStatus.rotating && rover!=null) {
+						transform.RotateAround (transform.position, rover.transform.up, Time.deltaTime * rotateMultiplier);
 				}
 	}
 }
