@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
 		}
 
 		public Camera GetPlayerCamera(){
-				foreach (Camera c in gameObject.GetComponentsInChildren<Camera>(true))
+				foreach (Camera c in player.GetComponentsInChildren<Camera>(true))
 						return c;
 				Debug.LogError (this + " failed to find camera.");
 				isSetup = false;

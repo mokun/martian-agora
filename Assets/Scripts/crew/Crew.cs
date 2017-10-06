@@ -8,14 +8,6 @@ using System;
 [RequireComponent (typeof(CharacterMotor))]
 public class Crew : MonoBehaviour
 {
-		public enum Modes
-		{
-				walking,
-				driving
-		}
-
-		private Modes mode;
-
 		public static int inventorySize = 64;
 
 		[SerializeField]
@@ -25,34 +17,63 @@ public class Crew : MonoBehaviour
 		private float batteryEnergy = 100;
 
 		private Camera crewCamera;
-		private Rover rover;
+		private Rover occupiedRover;
 		private ClickController clickController;
+		private TerrainManager terrainManager;
+		private Transform startTransformParent;
 
 		public Thing[] inventory;
 
 		void Start ()
 		{
+				startTransformParent = transform.parent;
 				clickController = FindObjectOfType<ClickController> ();
+				terrainManager = FindObjectOfType<TerrainManager> ();
 				SetupDebugInventory ();
 		}
 
 		void Update ()
 		{
 				if (Input.GetKeyDown (KeyCode.E)) {
-						MouseHoverInfo mhi = clickController.GetMouseHoverInfo (reachRange);
-						if (mhi.IsHit && mhi.hoverObject.GetComponent<Rover> () != null) {
-								Debug.Log (this + " detected 'e' press on Rover.");
-								bool isDriving = mode == Modes.walking;
-								SetDrivingMode (isDriving);
-								Rover rover = mhi.hoverObject.GetComponent<Rover> ();
-								rover.SetMode (RoverModes.driving);
+						bool isDriving = occupiedRover != null;
+						if (isDriving) {
+								ExitRover ();
+						} else{
+								MouseHoverInfo mhi = clickController.GetMouseHoverInfo (reachRange);
+								if (mhi.IsHit ) {
+										Rover newRover = mhi.hoverObject.GetComponent<Rover> ();
+										EnterRover (newRover);
+								}
 						}
 				}
 		}
 
-		public Modes GetMode ()
-		{
-				return mode;
+		private void EnterRover(Rover newRover){
+				Debug.Log (this + " EnterRover.");
+				occupiedRover = newRover;
+				occupiedRover.SetMode (RoverModes.driving);
+				SetPlayerCanWalk (false);
+				transform.position = occupiedRover.GetDriverPosition ().transform.position;
+				transform.parent = occupiedRover.GetDriverPosition ().transform;
+		}
+
+		private void ExitRover(){
+				Debug.Log (this + " ExitRover.");
+				occupiedRover.Park ();
+
+				Vector3 newPosition=occupiedRover.transform.position - occupiedRover.transform.forward * 10;
+				float altitude = terrainManager.GetHeightAtPoint (newPosition);
+				newPosition.y = altitude + 3;
+				transform.position = newPosition;
+				transform.parent = startTransformParent;
+
+				foreach (Camera c in FindObjectsOfType<Camera>())
+						c.enabled = false;
+				GetCrewCamera().enabled = true;
+
+				SetPlayerCanWalk (true);
+
+				occupiedRover = null;
 		}
 
 		private Thing[] GetInventory ()
@@ -76,17 +97,11 @@ public class Crew : MonoBehaviour
 				return crewCamera;
 		}
 
-		public void SetDrivingMode (bool isDriving)
+		public void SetPlayerCanWalk (bool canWalk)
 		{
-				SetDrivingMode (isDriving ? Modes.driving : Modes.walking);
-		}
-
-		public void SetDrivingMode (Modes newMode)
-		{
-				bool isDriving = newMode == Modes.driving;
-				GetComponent<CharacterController> ().enabled = !isDriving;
-				GetComponent<CharacterMotor> ().enabled = !isDriving;
-				GetComponent<FPSInputController> ().enabled = !isDriving;
+				GetComponent<CharacterController> ().enabled = canWalk;
+				GetComponent<CharacterMotor> ().enabled = canWalk;
+				GetComponent<FPSInputController> ().enabled = canWalk;
 		}
 
 		public bool IsSlotIndexValid (int index)
@@ -97,11 +112,6 @@ public class Crew : MonoBehaviour
 		public float GetBatteryEnergy ()
 		{
 				return batteryEnergy;
-		}
-
-		public float GetLadderClimbSpeed ()
-		{
-				return 3;
 		}
 
 		public Rover GetVehicleController ()

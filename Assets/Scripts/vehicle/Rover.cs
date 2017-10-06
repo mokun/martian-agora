@@ -31,8 +31,15 @@ public class Rover : MonoBehaviour
 		[SerializeField]
 		private GameObject[] wheelGameObjects;
 
+		[SerializeField]
+		private GameObject[] rotatingWheelGameObjects;
+
+		[SerializeField]
+		private GameObject driverPosition;
+
 		private RoverWheel[] wheels;
 		private GameManager gameManager;
+		private float wheelCircumference;
 
 		private bool isSetup=false;
 
@@ -44,17 +51,37 @@ public class Rover : MonoBehaviour
 
 		}
 
+		public GameObject GetDriverPosition(){
+				return driverPosition;
+		}
+
 		private void Setup(){
 				if (isSetup)
 						return;
 
 				gameManager = FindObjectOfType<GameManager> ();
 
+				if (driverPosition == null) {
+						Debug.LogError (this + " not set up. Null values.");
+						return;
+				}
+
+				if (FindObjectOfType<GreebleCameraRotate> () == null) {
+						Debug.LogWarning (this + " does not have GreebleCameraRotate.");
+				}
+
 				//find and set wheels
 				if (wheelGameObjects.Length == 0) {
 						Debug.LogError (this + " failed. No wheels.");
 						return;
 				}
+
+				//estimate the diameter of the wheel based on the mesh, for wheel spin animation.
+				MeshRenderer mr = wheelGameObjects [0].GetComponent<MeshRenderer> ();
+				float wheelDiameter = Mathf.Min (mr.bounds.size.x, mr.bounds.size.y, mr.bounds.size.z);
+				Debug.Log (this + " estimated wheel diameter to be " + wheelDiameter);
+				wheelCircumference = wheelDiameter * Mathf.PI;
+
 				wheels=new RoverWheel[wheelGameObjects.Length];
 				for(int i =0;i<wheelGameObjects.Length;i++){						
 						RoverWheel wheel = wheelGameObjects[i].AddComponent<RoverWheel> ();
@@ -86,34 +113,6 @@ public class Rover : MonoBehaviour
 				SetMode (roverMode);
 
 				isSetup = true;
-		}
-
-		private Collider SetCollider (GameObject go, bool isEnabled)
-		{
-				//already has MeshCollider        
-				if (go.GetComponent<MeshCollider> () != null) {
-						MeshCollider mc = go.GetComponent<MeshCollider> ();
-						mc.enabled = isEnabled;
-						return mc;
-				}
-
-				//already has BoxCollider
-				if (go.GetComponent<BoxCollider> () != null) {
-						BoxCollider bc = go.GetComponent<BoxCollider> ();
-						bc.enabled = isEnabled;
-						return bc;
-				}
-
-				//does not have any collider
-				MeshRenderer mr = go.GetComponent<MeshRenderer> ();
-				//empty gameobjects can have renderers. only add mesh collider if renderer has something in it.
-				if (isEnabled && mr != null && go.GetComponent<MeshCollider> () == null && mr.bounds.size.magnitude > 0) {
-						MeshCollider mc = go.AddComponent<MeshCollider> ();
-						mc.enabled = isEnabled;
-						return mc;
-				}
-
-				return null;
 		}
 
 		public void SetMode (RoverModes newVehicleMode)
@@ -164,15 +163,8 @@ public class Rover : MonoBehaviour
 						cameras [i].enabled = false;
 		}
 
-		private void ReleaseDriver(){
-				GameObject player = gameManager.GetPlayer ();
-
-				TerrainManager tm=FindObjectOfType<TerrainManager> ();
-				float altitude = tm.GetHeightAtPoint (player.transform.position);
-
-				Vector3 newPosition=transform.position + transform.forward * 10;
-				newPosition.y = altitude + 2;
-				player.transform.position = newPosition;
+		public void Park(){
+				roverMode = RoverModes.parked;
 		}
 
 		private void OccupiedUpdate ()
@@ -199,13 +191,6 @@ public class Rover : MonoBehaviour
 						roverMode = RoverModes.braking;
 				else
 						roverMode = RoverModes.driving;
-
-				if (Input.GetKeyDown (KeyCode.E)) {
-						Debug.Log (this + " is releasing the driver.");
-						ReleaseDriver ();
-						gameManager.GetCrew ().SetDrivingMode (false);
-						roverMode = RoverModes.parked;
-				}
 		}
 
 		public static Rover GetVehicleControllerFromChild (GameObject child)
@@ -294,6 +279,16 @@ public class Rover : MonoBehaviour
 
 				if (roverMode == RoverModes.braking || roverMode == RoverModes.parked) {
 						ApplyBrakes (wheelTouchCounter);
+				}
+
+				//turn wheels
+				if (roverMode == RoverModes.driving) {
+						float metersThisFrame = rb.velocity.magnitude * Time.fixedDeltaTime;
+						float angle = (metersThisFrame / wheelCircumference)*360;
+						Debug.Log ("angle = " + angle);
+						foreach (GameObject wheelGO in rotatingWheelGameObjects) {
+								wheelGO.transform.RotateAround (wheelGO.transform.position, wheelGO.transform.right, angle);
+						}
 				}
 		}
 }
