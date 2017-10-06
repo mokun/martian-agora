@@ -1,4 +1,4 @@
-*_*/
+_*/
 _renders/
 _renders.meta
 
@@ -11,6 +11,7 @@ Assets/Resources/item\ icons/renders*
 # =============== #
 Temp/
 Library/
+Builds/
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
